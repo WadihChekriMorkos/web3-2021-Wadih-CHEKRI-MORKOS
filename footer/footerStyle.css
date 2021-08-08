@@ -1,0 +1,85 @@
+
+.container1{
+    display:flex;
+    justify-content: space-between;
+    margin-right:50px;
+    background-color:#4e97fd;;
+    padding:20px;
+    width:100%;
+}
+
+.first span,.second span{
+    display:block;
+    margin-top:25px;
+    color:#ffffff;
+    cursor:pointer;
+    transition:0.5s all ease;
+}
+.first span:hover,.second span:hover,.third span:hover{
+    color: #ffffffa1;
+}
+.first span,.second ul li a,.third ul li a{
+    font-size:15px;
+}
+ .container1 .first span{
+    display:block;
+}
+.list li{
+    list-style-type: none;
+}
+.second ul li a,.third ul li a{
+    color:#ffffff;
+    display:block;
+    text-decoration:none;
+    margin-top:15px;
+    transition:0.5s all ease;
+}
+.list li a:hover,span i:hover{
+    color:#ffffffa1;
+    cursor:pointer;
+}
+h2{
+    color:#ffffff;
+    font-size:1.2rem;
+}
+.first i , .second li a i,.third li a i{
+    padding-right:10px;
+}
+.fa-caret-down,hr{
+    display:none;
+}
+
+
+
+/*Responsive*/
+@media(max-width:768px){
+    .container1{
+        flex-direction: column;
+        padding-left:20px;
+    }
+    .container1>div{
+        margin-top:20px;
+        margin-left:20px;
+    }
+    h2{
+       display:inline-block;
+    }
+    .fa-caret-down{
+        display:inline-block;
+    }
+    hr{
+        display:block;
+    }
+    .container1 .first span,.container1 .second .list,.container1 .third .list{
+        display:none;
+    }
+    .fa-caret-down{
+        color:#ffffff;
+        cursor:pointer;
+    }
+    hr{
+        margin-top:15px;
+    }
+   
+
+}
