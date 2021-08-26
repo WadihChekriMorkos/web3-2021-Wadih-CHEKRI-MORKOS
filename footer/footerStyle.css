@@ -7,34 +7,17 @@
     padding:20px;
     width:100%;
 }
-
-.first span,.second span{
-    display:block;
-    margin-top:25px;
-    color:#ffffff;
-    cursor:pointer;
-    transition:0.5s all ease;
-}
-.first span:hover,.second span:hover,.third span:hover{
-    color: #ffffffa1;
-}
-.first span,.second ul li a,.third ul li a{
-    font-size:15px;
-}
- .container1 .first span{
-    display:block;
-}
 .list li{
     list-style-type: none;
 }
-.second ul li a,.third ul li a{
+.first ul li,.second ul li a,.third ul li a{
     color:#ffffff;
     display:block;
     text-decoration:none;
     margin-top:15px;
     transition:0.5s all ease;
 }
-.list li a:hover,span i:hover{
+.list li:hover,.list li a:hover{
     color:#ffffffa1;
     cursor:pointer;
 }
@@ -42,7 +25,7 @@ h2{
     color:#ffffff;
     font-size:1.2rem;
 }
-.first i , .second li a i,.third li a i{
+.first li i , .second li a i,.third li a i{
     padding-right:10px;
 }
 .fa-caret-down,hr{
