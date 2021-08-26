@@ -8,9 +8,11 @@
             <h2>Contact us</h2>
             <i class="fa fa-caret-down first-caret"></i>
             <hr>
-            <span><i class="fas fa-home"></i>Batroun-Lebanon</span>
-            <span ><i class="fas fa-phone-square-alt"></i>+961 76132016</span>
-            <span><i class="fas fa-envelope-square"></i>wadihmorkos9@gmail.com</span>
+            <ul class="list">
+            <li><i class="fas fa-home"></i>Batroun-Lebanon</li>
+            <li><i class="fas fa-phone-square-alt"></i>+961 76132016</li>
+            <li><i class="fas fa-envelope-square"></i>wadihmorkos9@gmail.com</li>
+</ul>
         </div>
         <div class="second">
             <h2>Links</h2>
@@ -34,7 +36,7 @@
     <script>
         $(document).ready(function(){
            $(".first-caret").click(function(){
-               $(".first span").toggle();
+               $(".first ul").toggle();
            });
 
            $(".second-caret").click(function(){
@@ -49,19 +51,17 @@
         
         $( window ).resize(function() {
         if($(window).width()>=751){
-            $(".first span").show();
+            $(".first ul").show();
             $(".second .list").show();
             $(".third .list").show();
         }
         else{
             
-            $(".first span").hide();
+            $(".first ul").hide();
             $(".second .list").hide();
             $(".third .list").hide();
         }
-            });
-
-    
+            }); 
     </script>    
     </body>
 </html>
