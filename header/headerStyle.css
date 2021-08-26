@@ -3,7 +3,7 @@
     padding:0%;
     box-sizing:border-box;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size:1.1rem;
+    
 }
 .container .navbar{
     display: flex;
@@ -25,6 +25,9 @@
 #menu1{
     flex:1;
     margin-left:15px;
+}
+#menu1 .icons-mobile{
+    display:none;
 }
 #menu1 li,#menu2 li{
     list-style: none;
@@ -60,7 +63,7 @@ table td button{
     padding-left:15px;
     margin-right:5px;
     color:white;
-    height:35px;
+    height:29px;
     cursor: pointer;
     background-color: #3079df;
     border-top-right-radius: 5px;
@@ -86,6 +89,56 @@ table td button:hover{
 }
 .mobile-menu{
     display:none;
+}
+li{
+    cursor:pointer;
+}
+/* Media (Responsive) */
+@media(max-width:800px){
+    .container .navbar{
+        flex-direction:column;
+    }
+    .navbar img{
+        width:35%;
+        margin:20px;
+        border:none;
+    }
+    .mobile-menu{
+        display:block;
+        color:#ffffff;
+        font-size: 25px;
+        position:absolute;
+        right:10px;
+        cursor:pointer;
+        top:60px;
+    }
+    .navbar #menu1{
+        flex-direction: column;
+        padding:10px;
+    }
+    table td input{
+        margin-left:35px;
+        width:100%;
+    }
+    table {
+        margin-bottom: 10px;
+    }
+    table .icon-style{
+        display:none;
+    }
+    .navbar #menu1 .icons-mobile{
+        display:block;
+    }
+    .navbar #menu1 .icons-mobile{
+        margin-top:15px;
+    }
+    .navbar #menu1 .icons-mobile span{
+        padding-left:10px;
+    }
+    hr{
+        border:1px solid #ffffff;
+    }
+   
 }
 
 
