@@ -5,55 +5,67 @@
 
 <?php
 include "../header/header.php";
+include "register_handler.php";
+
 ?>
 <div class="container-register">
     <div class="form">
     <h1>Register for a new account</h1>
-    <form method="POST">
+    <?php 
+    if(!empty($error))
+    echo "<div class=\"error\">$error</div>";
+    ?>
+
+    <form method="POST" action="register_handler.php">
+        <div>
+            <span>
+                <input type="radio" name="accountType" id="cust" checked value="customer"/>  Customer
+                <input type="radio" name="accountType" id="comp" value="company"/>   Company
+             </span>
+        </div>
         <div class="fn-ln">
             <div class="fn-div">
                 <span>First name</span>
-                <span><input type="text"></span>
+                <span><input type="text" name="fname"></span>
             </div>
 
             <div class="ln-div">
                 <span>Last name</span>
-                <span><input type="text"></input></span>
+                <span><input type="text" name="lname"></span>
             </div>
 
+        </div>
+
+        <div class="company">
+            <span>Company name</span>
+            <span><input type="text" class="adjust-inp" name="compname"/></span>
         </div>
         
         <div>
             <span>Mobile no.</span>
-            <span><input type="text" class="adjust-inp"></td>
+            <span><input type="text" class="adjust-inp" name="mobile"></td>
         </div>
 
-        <div>
-            <span>Accout type</span>
-            <span>
-            <select>
-                    <option value="customer">Customer</option>
-                    <option value="company">Company</option>
-                </select>
-            </span>
-        </div>
+       
 
         <div>
             <span>Email</span>
-            <span><input type="email" class="adjust-inp"/></span>
+            <span><input type="email" class="adjust-inp" name="email"/></span>
         </div>
         
         <div>
             <span>Password</span>
-            <span><input type="password" class="adjust-inp"/></span>
+            <span><input type="password" class="adjust-inp" name="pass"/></span>
         </div>
         
         
         <div>
-            <span>Confirm password</span>
-            <span><input type="password" class="adjust-inp"/></span>
+            <span>Re-enter password</span>
+            <span><input type="password" class="adjust-inp" name="pass2"/></span>
         </div>
-        
+        <div>
+            <span>Do you have an account? <a href="login.php">Log In</a></span>
+        </div>
         <div>
             <input type="submit" value="Register account"/>
         </div>
