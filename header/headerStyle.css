@@ -61,7 +61,7 @@ table td input:focus{
 table td button{
     border:none;
     padding-left:15px;
-    margin-right:5px;
+    padding-right:15px;
     color:white;
     height:29px;
     cursor: pointer;
@@ -81,12 +81,26 @@ table .icon-style{
 table .icon-style:hover{
     background-color:#2566c2;
 }
-table td i{
-    padding-right:10px;
+table .icon-style span{
+    color:#ffffff;
+    cursor:pointer;
+    margin-left:5px;
+    margin-right:10px;
 }
+table td i{
+    margin-left:10px;
+}
+
 table td button:hover{
     background-color: #2566c2;
 }
+.fas{
+color:#ffffff;
+cursor: pointer;
+}
+
+
+
 .mobile-menu{
     display:none;
 }
