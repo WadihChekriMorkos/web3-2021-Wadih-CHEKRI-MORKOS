@@ -30,6 +30,7 @@ $checker=true;
             else{
                $resultat=mysqli_fetch_assoc($result);
                $_SESSION["companyName"]=$resultat["companyName"];
+               header("Location:../home/home.php");
             }
 
         }
@@ -43,6 +44,7 @@ $checker=true;
             else{
                 $resultat=mysqli_fetch_assoc($result);
                 $_SESSION["clientName"]=$resultat["firstName"];
+                header("Location:../home/home.php");
             } 
         }
     }
