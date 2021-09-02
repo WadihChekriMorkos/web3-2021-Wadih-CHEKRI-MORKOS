@@ -3,11 +3,14 @@ include "../db_con/connection.php";
 if(isset($_POST["accountType"]) && !empty($_POST["accountType"])){
 $checkbox=$_POST["accountType"];
 $error="";
+$success="";
 $checker=true;
 if($checkbox=="customer"){
     if(isset($_POST["fname"]) && !empty($_POST["fname"]) && isset($_POST["lname"]) && !empty($_POST["lname"]) && isset($_POST["mobile"]) && !empty($_POST["mobile"]) && isset($_POST["email"]) && !empty($_POST["email"]) && isset($_POST["pass"]) && !empty($_POST["pass"]) && (isset($_POST["pass2"])) && !empty($_POST["pass2"])){
         $fname=validate_input($_POST["fname"]);
         $lname=validate_input($_POST["lname"]);
+        $date=validate_input($_POST["date"]);
+        $gender=validate_input($_POST["gender"]);
         $mobile=validate_input($_POST["mobile"]);
         $email=validate_input($_POST["email"]);
         $pass=validate_input($_POST["pass"]);
@@ -44,12 +47,16 @@ if($checkbox=="customer"){
 
             if($checker==true){
                 $pass=md5($pass);
-                $requete="Insert into clients (firstName,lastName,mobile,email,password) values ('$fname','$lname',$mobile,'$email','$pass')";
-                mysqli_query($con,$requete);
-                $error=mysqli_error($con);
+                $requete="Insert into clients (firstName,lastName,mobile,email,password,Date,gender) values ('$fname','$lname',$mobile,'$email','$pass','$date','$gender')";
+                if(mysqli_query($con,$requete)){
+                    $success="Registered Successfully.";
+                }
             }
       
         
+    }
+    else{
+        $error="All fields are required.";
     }
 }
 
@@ -96,11 +103,15 @@ else{
         if($checker==true){
             $pass=md5($pass);
             $requete="Insert into company (companyName,mobile,email,password) values ('$companyName',$mobile,'$email','$pass')";
-            mysqli_query($con,$requete);
-            $error=mysqli_error($con);
+            if(mysqli_query($con,$requete)){
+                $success="Registered Successfully.";
+            }
+        
         }
     }
-    
+    else{
+        $error="All fields are required.";
+    }
 }
 
 }
