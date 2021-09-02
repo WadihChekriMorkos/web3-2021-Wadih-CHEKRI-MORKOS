@@ -31,7 +31,7 @@ include "login_handler.php";
              </span>
         </div>
         <div>
-            <span>Don't have an account?  <a href="register.php">Register an account</a>
+            <span>Don't have an account? <a href="register.php">Register an account</a>
         </div>
         <div>
             <input type="submit" value="Log In"/>
