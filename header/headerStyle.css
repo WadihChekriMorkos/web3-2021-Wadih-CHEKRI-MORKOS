@@ -1,13 +1,13 @@
 *{
     margin:0;
-    padding:0%;
+    padding:0;
     box-sizing:border-box;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     
 }
 .container .navbar{
     display: flex;
-    margin-top:35px;
+    margin-top:15px;
     background-color: #4e97fd;
     justify-content: space-between;
     
@@ -20,11 +20,56 @@
 }
 #menu1{
     display:flex;
-    margin-top:3px;
+    
 }
 #menu1{
     flex:1;
     margin-left:15px;
+}
+.client-options{
+    position:absolute;
+    top:46px;
+    right:20px;
+    padding:10px;
+    z-index:1;
+    display:none;
+}
+.client-options ul{
+    color:white;
+    background-color:#4e97fd;
+}
+.client-options a{
+    text-decoration: none;
+    color:white;
+}
+.categorie-list{
+    position:absolute;
+    top:56px;
+    left:285px;
+    color:white;
+    background-color:#4e97fd;
+    z-index:1;
+    display:none;
+}
+#menu1 .categorie{
+    border-bottom:1px solid #ffffff;
+}
+#menu1 .categorie-list li {
+border-bottom:1px solid #d3d1d1;
+}
+.client-options li:first-child{
+    border-top:1px solid #ffffff;
+}
+.categorie-list li,.client-options li{
+    list-style-type: none;
+    padding-top:10px;
+    padding-bottom: 10px;
+    padding-left:5px;
+    padding-right:5px;
+    transition:all ease 0.5s;
+}
+.categorie-list li:hover,.client-options li:hover{
+    background-color: #2566c2 ;
 }
 #menu1 .icons-mobile{
     display:none;
@@ -39,9 +84,8 @@
 }
 #menu1 li a
 {
-    text-decoration: none;
-    color:#ffffff;
-    padding-top:5px 2px;
+ text-decoration: none;
+color:#ffffff;    
 }
 
 
@@ -62,6 +106,7 @@ table td button{
     border:none;
     padding-left:15px;
     padding-right:15px;
+    margin-right:20px;
     color:white;
     height:29px;
     cursor: pointer;
@@ -124,7 +169,7 @@ li{
         position:absolute;
         right:10px;
         cursor:pointer;
-        top:60px;
+        top:35px;
     }
     .navbar #menu1{
         flex-direction: column;
@@ -148,6 +193,17 @@ li{
     }
     .navbar #menu1 .icons-mobile span{
         padding-left:10px;
+    }
+    .navbar #menu1 .categorie-list{
+        margin-top:10px;
+        border-radius:7px;
+        padding:5px;
+    }
+    #menu1 .categorie{
+        border-bottom: none;
+    }
+    .categorie-list li:first-child{
+        border-top:none;
     }
     hr{
         border:1px solid #ffffff;
