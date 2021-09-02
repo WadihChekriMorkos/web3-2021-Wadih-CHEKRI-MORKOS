@@ -1,10 +1,13 @@
 .container-register{
     margin:20px;
+    margin-top:50px;
+    margin-left:50px;
     display:flex;
     justify-content: space-between;
+    position:relative;
 }
 .container-register div{
-    margin-bottom:10px;
+    margin-bottom:17px;
 }
 .container-register span{
     display:block;
@@ -29,6 +32,12 @@
  h1{
      margin-left:25px;
  }
+#comp{
+    margin-left:280px;
+}
+#comp,#cust{
+    margin-top:20px;
+}
  .container-register input[type="submit"]{
      padding:10px;
      margin-left:360px;
@@ -40,10 +49,13 @@
      font-weight: bold;
      transition: 0.5s ease;
      cursor:pointer;
-
-
- }
- 
+}
+.gender{
+    display:flex;
+}
+.gender span:first-child{
+    margin-right:240px;
+}
  .container-register input[type="submit"]:hover{
     background-color: #2566c2;
     color:white;
@@ -58,8 +70,23 @@
      padding:10px;
      margin-left:35px;
  }
+ .error,.success{
+     margin-left:20px;
+     width:500px;
+     padding:20px;
+     text-align: center;
+ }
+ .error{
+    color:#ED6150;
+ }
+ .success{
+     color:green;
+ }
 /* media queries */
 @media(max-width:800px){
+    .container-register{
+        margin-left:20px;
+    }
     .container-register h1{
         font-size: 25px;
     }
@@ -76,7 +103,16 @@
     .container-register input[type="submit"]{
         margin-left:120px;
     }
-   
-
-
+    #comp{
+        margin-left:150px;
+    }
+    .gender span:first-child{
+        margin-right:80px;
+    }
+    input[type="date"]{
+        width:300px;
+    }
+    .error{
+        width:400px;
+    }
 }
