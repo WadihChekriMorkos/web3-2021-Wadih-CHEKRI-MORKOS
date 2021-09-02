@@ -19,7 +19,7 @@
             <i class="fa fa-caret-down second-caret"></i>
             <hr>
             <ul class="list">
-                <li><a href="#"><i class="fa fa-caret-right"></i>Home</a>
+                <li><a href="../home/home.php"><i class="fa fa-caret-right"></i>Home</a>
                 <li><a href="#"><i class="fa fa-caret-right"></i>Products Categories</a>
             </ul>
         </div>
@@ -35,6 +35,7 @@
         </div>
     <script>
         $(document).ready(function(){
+            $(".company").hide();
            $(".first-caret").click(function(){
                $(".first ul").toggle();
            });
@@ -61,7 +62,18 @@
             $(".second .list").hide();
             $(".third .list").hide();
         }
-            }); 
+            });
+            
+            $("#comp").click(function(){
+                $(".customer").hide();
+                $(".company").show();
+            });
+            
+            
+            $("#cust").click(function(){
+                $(".customer").show();
+                $(".company").hide();
+            });
     </script>    
     </body>
 </html>
