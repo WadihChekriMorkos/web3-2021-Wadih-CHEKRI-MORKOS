@@ -82,10 +82,10 @@ border-bottom:1px solid #d3d1d1;
 #menu1 li:hover{
     background-color: #2566c2;
 }
-#menu1 li a
+#menu1 li a,#menu1 a li
 {
- text-decoration: none;
-color:#ffffff;    
+text-decoration:none;
+color:#fff;    
 }
 
 
@@ -116,8 +116,8 @@ table td button{
 }
 table td a{
     color:#ffffff;
-    margin-left:15px;
-    margin-right:15px;
+    margin-left:5px;
+    margin-right:5px;
     text-decoration:none;
 }
 table .icon-style{
@@ -129,8 +129,8 @@ table .icon-style:hover{
 table .icon-style span{
     color:#ffffff;
     cursor:pointer;
-    margin-left:5px;
-    margin-right:10px;
+    margin-left:3px;
+    margin-right:5px;
 }
 table td i{
     margin-left:10px;
