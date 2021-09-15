@@ -1,0 +1,123 @@
+h3{
+    margin:10px;
+}
+h1{
+    text-align:center;
+    margin-top:20px;
+}
+.subcategorie ul{
+margin-top:10px;
+margin-left:30px;
+width:220px;
+}
+.subcategorie ul li{
+    list-style-type: none;
+    padding:10px;
+    margin-bottom: 5px;
+    background-color:#ece9e9;
+    font-size:15px;
+    transition:ease 0.2s all;
+}
+.subcategorie ul li:hover{
+    background-color:#ddd;
+}
+.filter-container{
+    margin:20px;
+}
+.filter-container p{
+    font-weight: bold;
+    margin-top:30px;
+    margin-bottom: 10px;
+}
+.filter-container>div{
+    margin:5px;
+    margin-left: 15px;
+}
+.filter-container input[type="button"]{
+    padding:10px;
+    border-radius: 5px;
+    border:none;
+    outline:none;
+    color:white;
+    margin:6px;
+    margin-left:70px;
+    background-color: #4e97fd;
+    cursor: pointer;
+    transition:all ease 0.5s;
+}
+.filter-container button:hover{
+    background-color: #2566c2;
+}
+.products{
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+}
+.products_container{
+    display:flex;
+}
+.product button{
+    margin:10px;
+    padding:10px;
+    border-radius:4px;
+    border:none;
+    font-size:16px;
+    outline:none;
+}
+.product .p_preview{
+    margin-right:60px;
+    background:#4e97fd;
+    color:#ffff;
+    cursor:pointer;
+    transition: all ease 0.5s;
+}
+.product .p_preview:hover{
+    background-color: #2566c2;
+}
+.product .p_cart{
+    border:1px solid #4e97fd;
+    color:#4e97fd;
+    cursor:pointer;
+    transition:all ease 0.5s;
+}
+.product .p_cart:hover{
+    background-color: #2566c2;
+    color:white;
+}
+.product{
+    border:2px solid #e1e1e1;
+    margin:20px;
+    transition: all ease 0.5s;
+}
+.product:hover{
+    box-shadow: 3px 3px 16px 0px rgba(0,0,0,0.75);
+    cursor:pointer;
+}
+.product img{
+    width:100%;
+}
+.product p{
+    font-size:14px;
+    margin:20px;
+}
+.product .p_name{
+    font-weight: bold;
+    font-size:18px;
+    text-align:center;
+}
+.product .p_description{
+font-size:17px;
+}
+.product .p_price{
+    font-weight:bold;
+    font-size:18px;
+}
+.filter{
+    display:flex;
+    flex-direction: row-reverse;
+}
+/* Media queries */
+@media(max-width:800px){
+    .left-container{
+        display: flex;
+    }
+}
