@@ -2,17 +2,14 @@
 <head>
     <link rel="stylesheet" href="../register_login/loginStyle.css">
 </head>
-
 <?php
 include "../header/header.php";
-include "login_handler.php";
-
 ?>
 <div class="container-login">
     <h1>Log in</h1>
     <?php 
-    if(!empty($error))
-    echo "<div class=\"error\">$error</div>";
+    if(!empty($_GET["error"]))
+    echo "<div class=\"error\">".$_GET["error"]."</div>";
     ?>
     <form method="POST" action="login_handler.php">
         <div>
@@ -39,8 +36,6 @@ include "login_handler.php";
         
     </form>
 </div>
-
-
 <?php
 include "../footer/footer.php";
 ?>
