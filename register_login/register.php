@@ -2,18 +2,15 @@
 <head>
     <link rel="stylesheet" href="../register_login/registerStyle.css">
 </head>
-
 <?php
 include "../header/header.php";
-include "register_handler.php";
-
 ?>
 <div class="container-register">
     <div class="form">
     <h1>Register for a new account</h1>
-    <?php 
-    if(!empty($error))   echo "<div class=\"error\">$error</div>";
-    if(!empty($success)) echo "<div class=\"success\">$success</div>";
+    <?php
+    if(isset($_GET["error"]) && !empty($_GET["error"]))   echo "<div class=\"error\">".$_GET["error"]."</div>";
+    if(isset($_GET["success"]) && !empty($_GET["success"])) echo "<div class=\"success\">".$_GET["success"]."</div>";
     ?>
 
     <form method="POST" action="register_handler.php">
@@ -45,9 +42,14 @@ include "register_handler.php";
             <span><input type="radio" name="gender" value="male"/>    Male</span>
 
         </div>
+
         <div class="company">
             <span>Company name</span>
             <span><input type="text" class="adjust-inp" name="compname"/></span>
+        </div>
+        <div class="city">
+            <span>City</span>
+            <span><input type="text" class="adjust-inp" name="cityname"/></span>
         </div>
         
         <div>
