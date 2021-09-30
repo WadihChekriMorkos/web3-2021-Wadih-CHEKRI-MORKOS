@@ -50,7 +50,7 @@
     margin-bottom:25px;
 }
 
-.top-categorie,.special-offer{
+.top-category,.special-offer{
     border:2px solid #e1e1e1;
     display:flex;
     padding-top:30px;
@@ -65,20 +65,30 @@
 .special-container{
     color:#ce0041;
 }
-.special-offer{
-    border:3px solid #ce0041;
-}
-.top-categorie-item,.special-offer-item{
+
+.top-category-item,.special-offer-item{
     margin-left:20px;
     margin-right: 20px;
     margin-bottom:20px;
     transition:all ease 0.5s;
 }
+.top-category img{
+    width:150px;
+    height:150px;
+    border-radius:4px;
+}
+.special-offer-item img{
+    width:160px;
+    height:150px;
+}
+.special-offer-item img{
+   padding-top:20px;
+}
 .special-offer-item{
     height:350px;
     margin:15px;
     padding:35px;
-    border:2px solid #e1e1e1;
+    width:200px;
 }
 .special-offer-item p{
     color:black;
@@ -86,19 +96,23 @@
 .special-offer-item p:hover{
     color:blue;
 }
-.top-categorie-container h3,.special-container h3{
+.top-category-container h3,.special-container h3{
     margin-left:50px;
     margin-bottom:10px;
     margin-top:60px;
 }
-.top-categorie-item:hover,.special-offer-item:hover{
+.top-category-item:hover,.special-offer-item:hover{
     color:blue;
     cursor:pointer;
 }
-.top-categorie-item img{
+.top-category-item img{
     transition:all ease 0.5s;
 }
-.top-categorie-item img:hover,.special-offer-item:hover{
+.top-category a{
+    color:black;
+    text-decoration: none;
+}
+.top-category-item:hover,.special-offer-item:hover{
     transform:scale(1.2);
 }
 .information-container{
@@ -183,9 +197,9 @@
     .slider .txt{
         margin-left:35px;
     }
-    .top-categorie{
+    .top-category{
         display:grid;
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns: repeat(1,1fr);
     } 
     .special-offer{
         display: grid;
@@ -203,7 +217,7 @@
         margin-top:15px;
         margin-left:60px;
     }
-    .top-categorie-item img:hover,.special-offer-item:hover{
+    .top-category-item img:hover,.special-offer-item:hover{
         transform:none;
     }
 
