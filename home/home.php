@@ -1,5 +1,6 @@
 <?php
 include "../header/header.php";
+include "../db_con/connection.php";
 ?>
 <head>
     <link rel="stylesheet" href="home.css">
@@ -14,7 +15,6 @@ include "../header/header.php";
         <div class="txt">
         <h1>ECG Machine</h1>
         <p>ECG from top Brands like BPL,Philips,Comen,Contec.Fast shipping!</p>
-        <button class="btn-slider">Order now</button>
         </div>
             </div>
     </div>
@@ -26,8 +26,7 @@ include "../header/header.php";
          </div>
          <div class="txt">
         <h1>Delivering COVID19 Essentials.</h1>
-        <p>Delivering essentials to fight with Covid19 like N95 Mask,Hand sanitizer,PPE kits and more.</p>
-        <button class="btn-slider">Order now</button>     
+        <p>Delivering essentials to fight with Covid19 like N95 Mask,Hand sanitizer,PPE kits and more.</p>     
     </div>
     </div>
 </div>
@@ -39,8 +38,7 @@ include "../header/header.php";
         </div>
         <div class="txt">
         <h1>Oxygen Concentrator</h1>
-        <p>Oxygen Concentrator from top Brands like BPL,Philips,Comen,Contec.Fast shipping!</p>
-        <button class="btn-slider">Order now</button>    
+        <p>Oxygen Concentrator from top Brands like BPL,Philips,Comen,Contec.Fast shipping!</p>   
     </div>
     </div>
 </div>
@@ -49,56 +47,6 @@ include "../header/header.php";
         <div class="control c2"></div>
         <div class="control c3"></div>
 </div>
-</div>
-
-<div class="top-categorie-container">
-    <h3>Top Categories</h3>
-    <div class="top-categorie">
-        <div class="top-categorie-item">
-            <img src="../categories/bipap_cipap.png" alt="">
-            <p>Bipap and Cpap</p>
-        </div>
-        <div class="top-categorie-item">
-            <img src="../categories/bipap_cipap.png" alt="">
-            <p>Bipap and Cpap</p>
-        </div>
-        <div class="top-categorie-item">
-            <img src="../categories/bipap_cipap.png" alt="">
-            <p>Bipap and Cpap</p>
-        </div>
-    </div>
-</div>
-
-
-<div class="special-container">
-    <h3>Special Offer Products</h3>
-    <div class="special-offer">
-        <div class="special-offer-item">
-            <img src="../categories/oxygen concentator.png" alt="">
-            <p>Oxygen</p>
-        </div>
-        <div class="special-offer-item">
-            <img src="../categories/oxygen concentator.png" alt="">
-            <p>Oxygen</p>
-        </div>
-        <div class="special-offer-item">
-            <img src="../categories/oxygen concentator.png" alt="">
-            <p>Oxygen</p>
-        </div>
-        <div class="special-offer-item">
-            <img src="../categories/oxygen concentator.png" alt="">
-            <p>Oxygen</p>
-        </div>
-        <div class="special-offer-item">
-            <img src="../categories/oxygen concentator.png" alt="">
-            <p>Oxygen</p>
-        </div>
-        <div class="special-offer-item">
-            <img src="../categories/oxygen concentator.png" alt="">
-            <p>Oxygen</p>
-        </div>
-        
-    </div>
 </div>
 
 <div class="information-container">
