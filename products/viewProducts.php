@@ -113,7 +113,9 @@ echo "<h3 class=\"infoMsg\"><i>Showing ".$row["categoryName"]." category product
         }
         ?>
         </div>
-        <div class="arrow">UP</div>
+        <div class="arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
+</svg></div>
 </div>
 
 <script>
@@ -121,7 +123,7 @@ echo "<h3 class=\"infoMsg\"><i>Showing ".$row["categoryName"]." category product
          //si on appuie sur une subcategory
          var subcategoryId="";
          var categoryId="";
-        $(".sub li").click(function(){
+         $(".products_container").on('click','.sub li',function(){
             //prendre l'id
             var id=$(this).attr("id");
             //prendre la valeur
@@ -154,7 +156,7 @@ echo "<h3 class=\"infoMsg\"><i>Showing ".$row["categoryName"]." category product
         })
         //si le filter est appuye
             //si un checkbox de filter est selectionne
-            $(".filter").click(function(){
+            $(".products_container").on('click','.filter',function(){
                 //prendre category id
             var categoryId=$("h1>input").val();
                 var selectedVal = "";
@@ -197,7 +199,9 @@ echo "<h3 class=\"infoMsg\"><i>Showing ".$row["categoryName"]." category product
         });
 
         //si on veut voir un produit
-        $(".products").on('click','.p_preview',function(){
+        $(".products_container").on('click','.p_preview',function(){
+            //prendre ce qui trouve dans le grand container
+           avantPage=$(".products_container").html();
             //prendre l'id du produit (ajoute dans un attr de ".p_preview")
             var productId=$(this).attr("p_id");
             $.ajax({
@@ -207,7 +211,10 @@ echo "<h3 class=\"infoMsg\"><i>Showing ".$row["categoryName"]." category product
            data:{productId:productId},
            success:function(response){
             if(response[0].productDescription.length==0){
-                var product="<div class='product-preview'><div class='product' id='prod'><div class=\"info\"></div><p><img src='"+response[0].productImage+"'></p><p class='p_name'>"+response[0].productName+"</p><div class='priceDiv'><p class='p_price'>Product Price : "+response[0].productPrice+" $</p></div><p><input type='number' min='1' class='p_n' value='1'></p><p>Product Quantity in stock : "+response[0].productQuantity+"</p><div class='btn'><button class='p_cart' p_id='"+response[0].productId+"'>Add to cart</button></div></div></div>";
+
+                var product=
+                "<div class='back'>Back</div>"
+                +"<div class='product-preview'><div class='product' id='prod'><div class=\"info\"></div><p><img src='"+response[0].productImage+"'></p><p class='p_name'>"+response[0].productName+"</p><div class='priceDiv'><p class='p_price'>Product Price : "+response[0].productPrice+" $</p></div><p><input type='number' min='1' class='p_n' value='1'></p><p>Product Quantity in stock : "+response[0].productQuantity+"</p><div class='btn'><button class='p_cart' p_id='"+response[0].productId+"'>Add to cart</button></div></div></div>";
                }
                    
                else{
@@ -215,16 +222,13 @@ echo "<h3 class=\"infoMsg\"><i>Showing ".$row["categoryName"]." category product
                }
             $(".products").empty();  
             $(".left-container").empty();
-            $(".infoMsg").empty();
-            $("h1").empty();
-            $("h1").append("Previewing a product");
             $(".products").append(product);
                }
            })
         })
 
         //si on veut ajouter un produit a la cart
-        $(".products").on('click','.p_cart',function(){
+        $(".products_container").on('click','.p_cart',function(){
             //prendre l'id du produit (ajoute dans un attr de ".p_cart")
             var productId=$(this).attr("p_id");
             //prendre l'id du parent example p1,p2,p3...
@@ -251,7 +255,15 @@ echo "<h3 class=\"infoMsg\"><i>Showing ".$row["categoryName"]." category product
                }
            })
         })
-     });
+    });
+
+    $(".products_container").on('click','.back',function(){
+            $(".products_container").empty();
+            $(".products_container").append(avantPage);
+        });
+
+
+
      let btn=document.querySelector(".arrow");
      window.onscroll=function(){
         if(window.scrollY >= 600){
