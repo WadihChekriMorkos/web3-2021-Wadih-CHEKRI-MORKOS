@@ -81,4 +81,36 @@ class Company extends Person{
     }
 }
 //FIN CLASSE COMPANY
+
+//DEBUT CLASSE PRODUIT
+class Product{
+    public $productImage;
+    public $productName;
+    public $productQuantityNeeded;
+    public $productPrice;
+    function __construct(){}
+    function fillProduct($connection,$productId){
+        $requete="select productName,productimageSrc,productPrice from
+        products where productId=$productId";
+        $result=mysqli_query($connection,$requete);
+        $row=mysqli_fetch_assoc($result);
+        $this->productImage=$row["productimageSrc"];
+        $this->productName=$row["productName"];
+        $this->productPrice=$row["productPrice"];
+    }
+    function neededQuantity($qt){
+        $this->productQuantityNeeded=$qt;
+    }
+    function addProductToCart($connection,$userId,$productId,$quantity){
+        $requete="insert into cart (productId,productQtNeeded,productName,userId) values($productId,$quantity,'$this->productName',$userId)";
+        $result=mysqli_query($connection,$requete);
+    }
+
+}
+
+
+
+
+
+
 ?>
