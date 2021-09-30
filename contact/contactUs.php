@@ -1,5 +1,40 @@
 <?php
 include "../header/header.php";
+include "../db_con/connection.php";
+$user="";
+if(isset($_SESSION["clientId"]) && !empty($_SESSION["clientId"])){
+    $user=$_SESSION["clientId"];
+}
+
+if(isset($_SESSION["companyId"]) && !empty($_SESSION["companyId"])){
+    $user=$_SESSION["companyId"];
+}
+$error="";
+$checker=true;
+if(isset($_POST["mail"]) && !empty($_POST["mail"]) && isset($_POST["message"])
+&& !empty($_POST["message"])){
+    $email=$_POST["mail"];
+    $message=$_POST["message"];
+    if(!preg_match("/^\w+@\w+[.]\w+$/",$email)){
+        $error.="email contains errors<br>";
+        $checker=false;
+        }
+    if(!preg_match("/^\w{10,}$/",$message)){
+        $error="message must contains in minimum 10 characters";
+        $checker=false;
+    }
+    if($checker){
+        if(empty($user)){
+            $requete="insert into messages(email,message) values('$email','$message')";    
+        }
+        else{
+        $requete="insert into messages values($user,'$email','$message')";
+        }
+        mysqli_query($con,$requete);
+    }
+    mysqli_close($con);
+}
+
 ?>
 <head>
     <link rel="stylesheet" href="contactUsStyle.css">
@@ -9,14 +44,12 @@ include "../header/header.php";
 <div class="contact-container">
     <div class="contact">
 <h3>Please fill the form below.</h3>
-<h3><span>NOTE:<i>You have to be a registered user.</i></span></h3>
+<p class="error"><?php if(isset($error) && !empty($error)) echo $error?></p>
 <form method="POST">
-    <span class="spans">Full name or Company name</span>
-    <span class="spans"><input type="text" class="input"/></span>
     <span class="spans">Email</span>
-    <span class="spans"><input type="email" class="input"/></span>
+    <span class="spans"><input type="email" name="mail" class="input"/></span>
     <span class="spans">Message</span>
-    <span class="spans"><textarea cols="35" rows="5"></textarea></span>
+    <span class="spans"><textarea name="message" cols="35" rows="5"></textarea></span>
     <span class="spans"><input type="submit" value="send"/></span>
 </form>
 </div>
