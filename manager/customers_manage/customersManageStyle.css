@@ -4,14 +4,14 @@ body{
     justify-content: center;
     align-items: center;
 }
-.customer-manage-container{
+.client-manage-container{
     background-color:#fff;
     padding:20px 20px;
 }
-.customer-manage-container p{
+.client-manage-container p{
   font-size:16px;
 }
-.customers-table {
+.clients-table {
     border-collapse: collapse;
     margin: 25px 0;
     font-size: 0.9em;
@@ -20,28 +20,28 @@ body{
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   }
- .customers-table tr th {
+ .clients-table tr th {
     background-color: #4acbd6;
     color: #ffffff;
     text-align: center;
     font-weight: bold;
   }
-  .customers-table tr td{
+  .clients-table tr td{
     text-align: center;
   }
-  .customers-table th,.customers-table td {
+  .clients-table th,.clients-table td {
     padding: 12px 15px;
   }
-.customers-table  tr {
+.clients-table  tr {
     border-bottom: 1px solid #dddddd;
   }
-.customers-table tr:nth-of-type(even) {
+.clients-table tr:nth-of-type(even) {
     background-color: #f3f3f3;
   }
-.customers-table  tr:last-of-type {
+.clients-table  tr:last-of-type {
     border-bottom: 2px solid #4acbd6;
   }
-input[type="button"],#search{
+input[type="button"],input[type="submit"]{
     width:81px;
     height:31px;
     margin:10px;
@@ -50,22 +50,31 @@ input[type="button"],#search{
     cursor:pointer;
     transition:all ease 0.5s;
 }
-input[type="button"]:first-child,#search{
+input[type="button"]:first-child{
     background-color:#4acbd6;
     border:1px solid #4acbd6;
 }
-input[type="button"]:last-child{
+input[type="button"]:last-child,input[type="submit"]{
     background-color: #ec2c2c;
     border:1px solid #ec2c2c;
 }
-input[type="button"]:first-child:hover,#search:hover{
+.btn{
+  display:flex;
+  position:absolute;
+  top:20px;
+  right:270px;
+}
+.btn .btn-home{
+  width:max-content;
+}
+input[type="button"]:first-child:hover{
     background-color: #2566c2;
     color:#fff;
 }
-input[type="button"]:last-child:hover{
+input[type="button"]:last-child:hover,input[type="submit"]:hover{
     background-color: #c01616;
 }
-.customer-add-update table tr td{
+.client-add table tr td,.client-update table tr td{
 padding:10px 20px;
 }
 hr{
@@ -74,3 +83,25 @@ hr{
 input[type="text"]{
   outline:none;
 }
+/* RESPONSIVE */
+@media(max-width:800px){
+
+  .client-details,.client-manage-container h1{
+    margin-left:280px;
+  }
+  .client-add,.client-update{
+    margin-left:400px;
+  }
+  .client-manage-container p{
+    display:none;
+  }
+  .btn{
+    position:static;
+  }
+  .h-btn{
+    display:flex;
+    justify-content: space-between;
+  }
+}
+
+
