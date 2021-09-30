@@ -1,3 +1,11 @@
+<?php
+include "../../db_con/connection.php";
+session_start();
+if(!isset($_SESSION["managerUser"]) && empty($_SESSION["managerUser"])){
+    echo "<h1>You can't view this page</h1>.";
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,138 +13,182 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="companiesManageStyle.css"/>
-    <title>Document</title>
+    <title>Companies Manage</title>
 </head>
 <body>
     <div class="company-manage-container">
+        <div class="h-btn">
         <h1>Company Managment Page</h1>
-        <p><i>This section is for searching/updating/deleting a company.</i></p>
-        <div class="company-details">
-         <h3>Companies</h3>
-         <span>Search companies by:</span>
-         <select>
-             <option>Company name</option>
-             <option>Mobile</option>
-             <option>Email</option>
-        </select>
-        <input type="text"/>
-        <input type="button" id="search" value="Search"/>
-         <table class="companies-table">
-        <tr>
-      <th>Company name</th>
-      <th>Mobile name</th>
-      <th>Mobile</th>
-      <th>Email</th>
-      <th>Password</th>
-      <th>Discounts(%)</th>
-      <th>Operation</th>
-    </tr>
-    <tr>
-      <td>Wadih</td>
-      <td>Morkos</td>
-      <td>76132016</td>
-      <td>wadihmorkos9</td>
-      <td>12345</td>
-      <td>0%</td>
-      <td><input type="button" value="Update"/><input type="button" value="Delete"/>
-    </td>
-    </tr>
-</table>
+        <div class="btn">
+        <a href="../../manager/managers_home/managerHome.php"><input type="button" class="btn-home" value="manager Home Page"/></a>
+        <form method="POST" action="../logoutManager.php">
+        <input type="submit" value="Log out"/>
+        </form>
     </div>
+        </div>
+        <p><i>This section is for updating/deleting a company.</i></p>
+        <div class="company-details">
+        </div>
     <hr></hr>
-    <div class="company-add-update">
+
+    <div class="company-update">
+        <h3>Update Company</h3>
+        <form method="POST" action="../../general_functions_classes/update.php">
+        <table>
+            <tr>
+                <td>Company ID</td>
+                <td><input type="text" id="companyId" name="companyId" readonly/></td>
+            </tr>
+            <tr>
+                <td>Company name</td>
+                <td><input type="text" id="nameU" name="name"></td>
+            </tr>
+            <tr>
+            <td>Mobile</td>
+            <td><input type="text"  id="mobileU" name="mobile"/></td>
+        </tr>
+        <tr>
+            <td>City</td>
+            <td><input type="text" id="citynameU" name="city"/></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="text" id="emailU" name="email"></td>
+        </tr>
+        
+        <tr>
+            <td>Discount</td>
+            <td><input type="text" id="discount" name="discount"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Update"/></td>
+        </tr>
+        </table>
+        </form>
+</div>
+
+
+
+
+    <div class="company-add">
         <h3>Add a new Company</h3>
         <p><i>This section is for adding a new company.</i></p>
         <table>
             <tr>
                 <td>Company name</td>
-                <td><input type="text" name="cname"></td>
+                <td><input type="text" id="name" name="name"></td>
             </tr>
             <tr>
             <td>Mobile</td>
-            <td><input type="text" name="mobile"/></td>
+            <td><input type="text"  id="mobile" name="mobile"/></td>
         </tr>
         <tr>
             <td>City</td>
-            <td><input type="text" name="cityname"/></td>
+            <td><input type="text" id="cityname" name="cityname"/></td>
         </tr>
         <tr>
             <td>Email</td>
-            <td><input type="text" name="email"></td>
+            <td><input type="text" id="email" name="email"></td>
         </tr>
         
         <tr>
             <td>Password</td>
-            <td><input type="password" name="pass"/></td>
+            <td><input type="password" id="password" name="pass"/></td>
         </tr>
         <tr>
             <td></td>
-            <td><input type="button" value="Add"/></td>
+            <td><input type="button" id="add" value="Add"/></td>
         </tr>
         </table>
-    </div>
-    <hr></hr>
-    <div class="company-products">
-        <h3>Companies products</h3>
-        <p><i>This section is for viewing/removing a company product.</i></p>
-        <table class="companies-table">
-        <tr>
-      <th>Product image </th>
-      <th>Produc name</th>
-      <th>Product categorie</th>
-      <th>Product sub categorie</th>
-      <th>Operation</th>
-    </tr>
-    <tr>
-        <td>img.jpg</td>
-      <td>12353</td>
-      <td>12</td>
-      <td>wadih</td>
-      <td><input type="button" value="Delete"/>
-    </td>
-    </tr>
-</table>
-<hr></hr>
-    </div>
-    <div class="company-orders">
-        <h3>Companies orders</h3>
-        <p><i>This section is for viewing/updating/deleting an order.</i></p>
-        <span>Search orders by:</span>
-         <select>
-             <option>Date</option>
-             <option>Company name</option>
-             <option>Order status</option>
-        </select>
-        <input type="text"/>
-        <input type="button" id="search" value="Search"/>
-    <table class="companies-table">
-        <tr>
-      <th>Order number </th>
-      <th>Company id</th>
-      <th>Company name</th>
-      <th>Date</th>
-      <th>Order status</th>
-      <th>Operation</th>
-    </tr>
-    <tr>
-      <td>12353</td>
-      <td>12</td>
-      <td>wadih</td>
-      <td>2021/1/12</td>
-      <td>Delivred</td>
-      <td><input type="button" value="Update"/><input type="button" value="Delete"/>
-    </td>
-    </tr>
-</table>
-    <h3>Update Order status</h3>
-    <span>Change the selected order status to:</span>
-    <select>
-        <option>Pending</option>
-        <option>Delivred</option>
-    </select>
-    </div>
-    </div>
+</div>
+</div>
 
 </body>
+<script>
+$(document).ready(function(){
+        refreshCompanies();
+            $(".company-update").hide();
+        //si on veut changer les infos d'une company existante
+        $(".company-details").on('click','#update',function(){
+            var tableName="company";
+            var parent=$(this).parent().parent().attr("id");
+           var companyId=$("#"+parent+" #c_id").val();
+            $.ajax({
+                type:"POST",
+                dataType:"JSON",
+                url:"../../ajax/operations/showUpdate.php",
+            data:{companyId:companyId,table:tableName},
+           success:function(response){
+                   $(".company-update").show();
+                   //remplir les inputs
+                   $("#companyId").attr("value",response[0].companyId);
+                   $("#nameU").attr("value",response[0].companyName);
+                   $("#mobileU").attr("value",response[0].mobile);
+                   $("#citynameU").attr("value",response[0].city);
+                   $("#emailU").attr("value",response[0].email);
+                   $("#discount").attr("value",response[0].discount);
+               }
+            })
+        })
+
+
+
+       //si on veut supprimer une company
+       $(".company-manage-container").on('click','#delete',function(){
+           //parent
+           var parent=$(this).parent().parent().attr("id");
+           var companyId=$("#"+parent+" #c_id").val();
+           var tableName="company";
+           //envoye companyId a deleting
+           $.ajax({
+           type:"POST",
+           url:"../../ajax/operations/deleting.php",
+           data:{companyId:companyId,table:tableName},
+           success:function(response){
+               console.log(response);
+            refreshCompanies();
+               }
+           })
+       });
+
+
+       //si on veut ajouter une company
+       $("#add").click(function(){
+           //variables
+           var companyName=$("#name").val();
+           var city=$("#cityname").val();
+           var mobile=$("#mobile").val();
+           var email=$("#email").val();
+           var password=$("#password").val();
+           var tableName="company";
+           //envoye ces variables a ajax
+           $.ajax({
+           type:"POST",
+           url:"../../ajax/operations/adding.php",
+           data:{companyName:companyName,city:city,mobile:mobile,email:email,password:password,table:tableName},
+           success:function(response){
+                refreshCompanies();
+               }
+           });
+       });
+
+
+       //function pour mettre a jour la table des managers
+       function refreshCompanies(){
+        $.ajax({
+           type:"POST",
+           url:"../../ajax/refresh/refreshCompanies.php",
+           success:function(response){
+               $(".company-details").empty();
+               $(".company-details").append("<h3>Companies</h3>");
+               $(".company-details").append(response);
+               }
+           })
+       }
+
+    })
+</script>
 </html>
