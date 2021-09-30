@@ -2,15 +2,12 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
 }
 .container .navbar{
     display: flex;
-    margin-top:15px;
     background-color: #4e97fd;
     justify-content: space-between;
-    
 }
 .navbar img{
     width:15%;
@@ -19,8 +16,7 @@
     border-bottom-left-radius:7px;
 }
 #menu1{
-    display:flex;
-    
+    display:flex; 
 }
 #menu1{
     flex:1;
@@ -28,7 +24,7 @@
 }
 .client-options{
     position:absolute;
-    top:46px;
+    top:28px;
     right:20px;
     padding:10px;
     z-index:1;
@@ -44,7 +40,7 @@
 }
 .categorie-list{
     position:absolute;
-    top:56px;
+    top:41px;
     left:285px;
     color:white;
     background-color:#4e97fd;
@@ -143,6 +139,9 @@ table td button:hover{
 color:#ffffff;
 cursor: pointer;
 }
+.mob-btn{
+    display: none;
+}
 
 
 
@@ -169,7 +168,7 @@ li{
         position:absolute;
         right:10px;
         cursor:pointer;
-        top:35px;
+        top:16px;
     }
     .navbar #menu1{
         flex-direction: column;
@@ -191,6 +190,19 @@ li{
     .navbar #menu1 .icons-mobile{
         margin-top:15px;
     }
+    .mob-btn{
+        display:flex;
+        margin:20px;
+    }
+    .mob-btn>div{
+        margin-left:20px;
+        margin-right:10px;
+        color:#ffff;
+    }
+    .mob-btn a{
+        color:#ffff;
+        text-decoration:none;
+    }
     .navbar #menu1 .icons-mobile span{
         padding-left:10px;
     }
@@ -207,6 +219,9 @@ li{
     }
     hr{
         border:1px solid #ffffff;
+    }
+    table{
+        display:block;
     }
    
 }
